@@ -1,0 +1,29 @@
+node default {
+	notify { 'message1':
+		message => "first message on puppet",
+	}
+}
+
+node 'node1' {
+	user { 'user1':
+		ensure => present,
+		uid    => 1001,
+		password => '$6$Brj8letN$DIupwFB9x5D9PUTgTAGlcFTeTF9GIMVH9A/9X248ZM6btiekKwBqp4UTLgBjxR70M2tvGSmljnci4IySIB70u1',
+             }
+	directory { '/root/directorynew':
+		    ensure => present,
+	    } 	    
+}
+node 'node2' {
+
+        user { 'user2':
+                ensure => present,
+                uid    => 1002,
+                password => '$6$Brj8letN$DIupwFB9x5D9PUTgTAGlcFTeTF9GIMVH9A/9X248ZM6btiekKwBqp4UTLgBjxR70M2tvGSmljnci4IySIB70u1',
+             }
+        file { '/root/newfile':
+                    ensure => present,
+            }
+
+}
+
